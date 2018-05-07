@@ -1,0 +1,14 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>notification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button (click)="getNotification()">Get Notification</button>
+  <div *ngIf="result">{{result}}</div>
+</ion-content>
