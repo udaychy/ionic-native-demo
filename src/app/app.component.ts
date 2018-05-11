@@ -10,6 +10,7 @@ import { CameraPage } from '../pages/camera/camera';
 import { NotificationPage } from '../pages/notification/notification';
 import { DeviceMotionPage } from '../pages/device-motion/device-motion';
 import { ContactPage } from '../pages/contact/contact';
+import { SimPage } from '../pages/sim/sim';
 
 @Component({
   templateUrl: 'app.html'
@@ -33,6 +34,7 @@ export class MyApp {
       { title: 'Device Motion', component: DeviceMotionPage },
       { title: 'Local Notification', component: NotificationPage },
       { title: 'Contacts', component: ContactPage },
+      { title: 'SIM', component: SimPage }
     ];
 
   }

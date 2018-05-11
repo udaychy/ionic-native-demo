@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <button ion-button full (click)="getGeoLocation()">Get Geolocation</button>
+  <button ion-button full (click)="getLocation()">Get Geolocation</button>
   <ion-list *ngIf="location">
     <ion-item>lat :{{location.lat}}</ion-item>
     <ion-item>lng :{{location.lng}}</ion-item>

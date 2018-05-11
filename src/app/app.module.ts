@@ -10,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { VibrationPage } from '../pages/vibration/vibration';
 import { Vibration } from '@ionic-native/vibration';
 import { GeolocationPage } from '../pages/geolocation/geolocation';
-import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation as Location } from '@ionic-native/geolocation';
 import { CameraPage } from '../pages/camera/camera';
 import { Camera} from '@ionic-native/camera';
 import { DeviceMotion } from '@ionic-native/device-motion';
@@ -19,6 +19,8 @@ import { NotificationPage } from '../pages/notification/notification';
 import { ContactPage } from '../pages/contact/contact';
 import { DeviceMotionPage } from '../pages/device-motion/device-motion';
 import { Contacts } from '@ionic-native/contacts';
+import { Sim } from '@ionic-native/sim';
+import { SimPage } from '../pages/sim/sim';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { Contacts } from '@ionic-native/contacts';
     CameraPage,
     DeviceMotionPage,
     NotificationPage,
-    ContactPage
+    ContactPage,
+    SimPage
   ],
   imports: [
     BrowserModule,
@@ -45,18 +48,20 @@ import { Contacts } from '@ionic-native/contacts';
     CameraPage,
     DeviceMotionPage,
     NotificationPage,
-    ContactPage
+    ContactPage,
+    SimPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Vibration,
-    Geolocation,
+    Location,
     DeviceMotion,
     Camera,
     LocalNotifications,
-    Contacts
+    Contacts,
+    Sim
   ]
 })
 export class AppModule {}

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation as Location } from '@ionic-native/geolocation';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { Platform } from 'ionic-angular/platform/platform';
 
 @Component({
   selector: 'page-geolocation',
@@ -9,25 +11,52 @@ import { Geolocation } from '@ionic-native/geolocation';
 export class GeolocationPage {
 
   public location : {lat: number, lng: number}
-  constructor(private geolocation: Geolocation) {
+  public locationTest: any;
+  constructor(
+    private geolocation: Location,
+    private alertCtrl: AlertController,
+  private platform: Platform) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GeolocationPage');
   }
 
-  getGeoLocation(){
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.location={
-        lat : resp.coords.latitude,
-        lng : resp.coords.longitude
-      }
-      console.log(JSON.stringify(resp));
-     }).catch((error) => {
-       debugger;
-       console.log('Error getting location', error);
-       console.log('Error getting location', JSON.stringify(error));
-     });
+  getLocation() {
+    this.presentAlert('inside Geolocation method');
+    this.platform.ready().then(() => {
+      this.geolocation.getCurrentPosition({enableHighAccuracy: true, timeout: 1000}).then((resp) => {
+        this.location = {
+          lat: resp.coords.latitude,
+          lng: resp.coords.longitude
+        }
+        this.presentAlert(resp.coords.latitude + " " + resp.coords.latitude);
+        console.log(JSON.stringify(resp));
+      }).catch((error) => {
+        this.presentAlert('exception occured while fetching location');
+        this.presentAlert(error);
+        debugger;
+        console.log('Error getting location', error);
+        console.log('Error getting location', JSON.stringify(error));
+      });
+    })
+  }
+
+  // async getLocation() {
+  //   await this.platform.ready();
+  //   const { coords } = await this.geolocation.getCurrentPosition();
+  //   this.locationTest = coords;
+  //   console.log(coords.latitude)
+  //   console.log(coords.longitude)
+  // }
+
+  presentAlert(msg:string) {
+    let alert = this.alertCtrl.create({
+      title: 'Alert',
+      subTitle: msg,
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
 
 }

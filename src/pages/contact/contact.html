@@ -18,7 +18,17 @@
 <button ion-button (click)="displayAll()"> All Contacts</button>
 <ion-list *ngIf="allContacts">
   <ion-item *ngFor="let contact of allContacts">
-    {{contact.name}}
+      <ion-label>
+          {{contact.displayName}}
+        </ion-label>
+        <div item-content>
+          <ion-list *ngIf="contact.phoneNumbers">
+            <ion-item *ngFor="let phoneNumber of contact.phoneNumbers">
+                {{phoneNumber.value}}
+            </ion-item>
+          </ion-list>
+        </div>
+    <ion-item></ion-item>
   </ion-item>
 </ion-list>
 </ion-content>
