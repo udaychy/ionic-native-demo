@@ -21,6 +21,10 @@ import { DeviceMotionPage } from '../pages/device-motion/device-motion';
 import { Contacts } from '@ionic-native/contacts';
 import { Sim } from '@ionic-native/sim';
 import { SimPage } from '../pages/sim/sim';
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
+import { SpeechPage } from '../pages/speech/speech';
+import { TextToSpeechPage } from '../pages/text-to-speech/text-to-speech';
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 
 
 @NgModule({
@@ -33,7 +37,9 @@ import { SimPage } from '../pages/sim/sim';
     DeviceMotionPage,
     NotificationPage,
     ContactPage,
-    SimPage
+    SimPage,
+    SpeechPage,
+    TextToSpeechPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,9 @@ import { SimPage } from '../pages/sim/sim';
     DeviceMotionPage,
     NotificationPage,
     ContactPage,
-    SimPage
+    SimPage,
+    SpeechPage,
+    TextToSpeechPage
   ],
   providers: [
     StatusBar,
@@ -61,7 +69,9 @@ import { SimPage } from '../pages/sim/sim';
     Camera,
     LocalNotifications,
     Contacts,
-    Sim
+    Sim,
+    SpeechRecognition,
+    TextToSpeech
   ]
 })
 export class AppModule {}

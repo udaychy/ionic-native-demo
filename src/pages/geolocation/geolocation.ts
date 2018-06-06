@@ -11,11 +11,10 @@ import { Platform } from 'ionic-angular/platform/platform';
 export class GeolocationPage {
 
   public location : {lat: number, lng: number}
-  public locationTest: any;
   constructor(
     private geolocation: Location,
     private alertCtrl: AlertController,
-  private platform: Platform) {
+    private platform: Platform) {
   }
 
   ionViewDidLoad() {
@@ -41,14 +40,6 @@ export class GeolocationPage {
       });
     })
   }
-
-  // async getLocation() {
-  //   await this.platform.ready();
-  //   const { coords } = await this.geolocation.getCurrentPosition();
-  //   this.locationTest = coords;
-  //   console.log(coords.latitude)
-  //   console.log(coords.longitude)
-  // }
 
   presentAlert(msg:string) {
     let alert = this.alertCtrl.create({

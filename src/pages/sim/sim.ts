@@ -23,8 +23,7 @@ export class SimPage {
     this.sim.getSimInfo().then(
       (info) =>{
         console.log('Sim info: ', info);
-        debugger;
-        this.presentAlert(info);
+        this.presentAlert(info.phoneNumber);
       },
       (err) =>{
         console.log('Unable to get sim info: ', err)

@@ -11,6 +11,8 @@ import { NotificationPage } from '../pages/notification/notification';
 import { DeviceMotionPage } from '../pages/device-motion/device-motion';
 import { ContactPage } from '../pages/contact/contact';
 import { SimPage } from '../pages/sim/sim';
+import { SpeechPage } from '../pages/speech/speech';
+import { TextToSpeechPage } from '../pages/text-to-speech/text-to-speech';
 
 @Component({
   templateUrl: 'app.html'
@@ -34,7 +36,9 @@ export class MyApp {
       { title: 'Device Motion', component: DeviceMotionPage },
       { title: 'Local Notification', component: NotificationPage },
       { title: 'Contacts', component: ContactPage },
-      { title: 'SIM', component: SimPage }
+      { title: 'SIM', component: SimPage },
+      { title: 'Speech', component: SpeechPage },
+      { title: 'Text to Speech', component: TextToSpeechPage }
     ];
 
   }
